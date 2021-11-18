@@ -53,10 +53,14 @@ AutoEncoder can be used for many applications, we will bring here some basic exa
 
 ![anomaly](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/anomaly.png)
 
-As you can see, the matrices we isolated here are indeed full of noise and form part of the infected observations we added synthetically - which means that we were able to identify the anomalies from the whole data set and isolate them.
+&emsp;&emsp; As you can see, the matrices we isolated here are indeed full of noise and was part of the infected matrices we added synthetically - which means that we were able to identify the anomalies from the whole data set and isolate them.
+
+For conculsion, we saw that AutoEncoders as a lot of useful applications, that can be serve as useful tools in the field of machine learning.
 
 ## Libraries
 The code uses the following library in Python:
+
+**tensorflow**
 
 **matplotlib**
 
@@ -67,7 +71,7 @@ An application of the code is attached to this page under the name:
 
 [**implementation.pdf**]()
 
-The examples are also attached here [Data]().
+The examples are also attached here [data](https://github.com/EtzionR/My-TF-AutoEncoder/tree/main/data).
 
 
 ## Example for using the code
