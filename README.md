@@ -45,9 +45,13 @@ AutoEncoder can be used for many applications, we will bring here some basic exa
 
 &emsp;&emsp; (This example presents of course a case where it is chosen that the length of the representing vector is 2, so that it can be used as 2D coordinates).
 
-- The network can also be used to **filter noise** in the given data. To do this, we will tune the network so that its input will be synthetically inserted noise matrices, while the output will be noise-free matrices. Now, if we try to insert a noisy matrix into the network, the network will correct the noises and return a "clean" matrix, as can be seen in the following example:
+- The network can also be used to **filter noise** in the given data. To do this, we will train the network so that its input will be synthetically inserted noise matrices, while the output will be noise-free matrices. Now, if we try to insert a noisy matrix into the network, the network weights will filter the noises and return a "clean" matrix, as can be seen in the following example:
 
-Similarly, a network can be used to detect anomalies in our dataset. In the following example, the network is fostered only on standard, noiseless matrices. After training, we used the net to return a prediction on a new dataset. In this dataset, we entered a minimal amount (3%) of observations with synthetic noises. The network, of course, fostered a regular and clean database, which of course led to a prediction that was far from the entered data. Therefore, by measuring the distances, only the matrices that constitute anomalies can be isolated from each infected date, as can be seen in the following example:
+![noise_filter](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/noisy.gif)
+
+- Similarly, the AutoEncoder can be used to **detect anomalies** in our dataset. In the following example, the network is train only on standard, noiseless matrices. After training, we used the network to return a prediction on a new dataset. In this dataset, we entered a minimal amount (**3%**) of matrices with **synthetic noises**. The network, of course, trained based on regular and clean database, which of course led to a prediction that was far from the entered data. Therefore, by measuring the distances between the actual matrix to the prediction we can detected unusual matrices. By doing so, we can **isolated the anomalies** in the given dataset, as can be seen in the following example:
+
+![anomaly](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/anomaly.png)
 
 As you can see, the matrices we isolated here are indeed full of noise and form part of the infected observations we added synthetically - which means that we were able to identify the anomalies from the whole data set and isolate them.
 
