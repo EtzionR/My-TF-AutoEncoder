@@ -28,17 +28,24 @@ The decoding process also consists several layers of t_conv (**transpose convulo
 
 In addition, after each t_conv layer, the network also includes an **upsampling** layer that reverses the process performed by the pooling layers. These layers return for each individual cell a 2X2 square of cells with equal value to the signle original value in the input tensor.
 
-In this way, the network tries to match the representing vector to desired output. At the end of the process, we test our output against the actual required output, which is defined as our Y. By this process, the network "learn" and adapt the layers weights. We update the weights of the network using **adam optimizer** when our loss function is **MSE**. This is how the network actually learns along the various stages to adapt itself to the required output. You can see in the following example how the AutoEncoder tries over 150 epochs to restore the original shape of the character "5" inserted into it:
+In this way, the network tries to match the representing vector to desired output. At the end of the process, we test our output against the actual required output, which is defined as our Y. By this process, the network "learn" and adapt the layers weights. We update the weights of the network using **adam optimizer** when our loss function is **MSE**. This is how the network actually learns along the various stages to adapt itself to the required output. You can see in the following example how the AutoEncoder learn over 150 epochs to restore the original shape of the character "5" inserted into it:
 
-As you can see, at first the network is not at all close to creating something resembling the desired character, but within a few steps, it already manages to create an image reminiscent of the desired character, until at the end of the process there is almost no noise output and the story can be clearly seen.
+![learning](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/converged.gif)
 
-As mentioned, automatic coders can be used for many purposes, we will bring here some basic examples:
-As mentioned, coders can be used to reproduce the same matrix they receive. That is, you feed the same matrix as both input (X) and output (Y) of the network. In this case, the weights of the network will learn how to recover from the vector representing the original matrix, as can be seen in the following example:
+As you can see, at first, the network is not close at all to creating something resembling the desired character, but within a few steps, it already manages to create an image close of the desired character, until at the end of the process there is almost no noise in the output and the character can be clearly seen.
 
-Also, after network training, the representing vector can be used as a dimensional reduction of the original matrix (similar to PCA). Vector exists in a latent space, and it can be seen that in the case before us, different numbers are given a different latent representation:
+AutoEncoder can be used for many applications, we will bring here some basic examples:
+- As mentioned, coders can be used to **retrive** the same matrix they receive. To do so, we feed the same matrix as both input (X) and output (Y) to the network. In this case, the weights of the network will learn how to recover the original matrix from the representing vector (as also to encoded the input matrix to this vector). You can see such process in the following example:
 
-(This example presents of course a case where it is chosen that the length of the representing vector is 2, so that it can be used as two-dimensional coordinates).
-The network can also be used to filter noise in the given data. To do this, we will tune the network so that its input will be synthetically inserted noise matrices, while the output will be noise-free matrices. Now, if we try to insert a noisy matrix into the network, the network will correct the noises and return a "clean" matrix, as can be seen in the following example:
+![retrive](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/encode_decode.gif)
+
+- Also, after network training, the representing vector can be used as a **dimensional reduction** of the original matrix (similar to **PCA**). The vector coordiantes exists in a latent space, and it can be seen that in the case before us, different numbers are given a different latent coordinate representation:
+
+![latent_space](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/latant_2d.png)
+
+&emsp;&emsp; (This example presents of course a case where it is chosen that the length of the representing vector is 2, so that it can be used as 2D coordinates).
+
+- The network can also be used to **filter noise** in the given data. To do this, we will tune the network so that its input will be synthetically inserted noise matrices, while the output will be noise-free matrices. Now, if we try to insert a noisy matrix into the network, the network will correct the noises and return a "clean" matrix, as can be seen in the following example:
 
 Similarly, a network can be used to detect anomalies in our dataset. In the following example, the network is fostered only on standard, noiseless matrices. After training, we used the net to return a prediction on a new dataset. In this dataset, we entered a minimal amount (3%) of observations with synthetic noises. The network, of course, fostered a regular and clean database, which of course led to a prediction that was far from the entered data. Therefore, by measuring the distances, only the matrices that constitute anomalies can be isolated from each infected date, as can be seen in the following example:
 
