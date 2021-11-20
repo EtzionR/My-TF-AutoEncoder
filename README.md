@@ -55,6 +55,19 @@ AutoEncoder can be used for many applications, we will bring here some basic exa
 
 &emsp;&emsp; As you can see, the matrices we isolated here are indeed full of noise and was part of the infected matrices we added synthetically - which means that we were able to identify the anomalies from the whole data set and isolate them.
 
+After you trainig the model, you might want to see the **learning curve** progress by epochs. To do so, you can use the built-in plot function of the object, as the following example:
+``` sh
+# import code
+from cec import AutoEncoder
+
+# fitting network
+autoencoder = AutoEncoder(source=(28,28),kernels=[5,5],filters=3,latant_dim=100,epochs=150,lr=.001).fit(input_x,output_y)
+
+# plot loss
+autoencoder.plot_loss()
+```
+![loss_curve](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/loss.png)
+
 For conculsion, we saw that AutoEncoders as a lot of useful applications, that can be serve as useful tools in the field of machine learning.
 
 ## Libraries
