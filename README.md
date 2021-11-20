@@ -110,20 +110,45 @@ The examples are also attached here [data](https://github.com/EtzionR/My-TF-Auto
 To use this code, you just need to import it as follows:
 ``` sh
 # import code
+from cec import AutoEncoder
+import numpy as np
 
 # load data
+x = np.load('x.npy') # training input
+y = np.load('y.npy') # training output
+z = np.load('z.npy') # new data for prediction
 
 # define variables
+source = (28,28)
+kernels = [5,5]
+filters = 3
+latant_dim = 100
+epochs = 150
+lr = 0.001
 
 # using the code
+aec = AutoEncoder(source=source,kernels=kernels,filters=filters,latant_dim=latant_dim,epochs=epochs,lr=lr)
 
+# fitting the model
+aec.fit(x,y)
+
+# get prediction
+aec.predict(z)
 ```
 
 When the variables displayed are:
 
-**v:** hh
+**source:** hh
 
-**b:** hh (defualt = 5)
+**kernels:** hh 
+
+**filters:** hh
+
+**latant_dim:** hh (defualt = 2)
+
+**epochs:** hh (defualt = 150)
+
+**lr:** hh (defualt = .001)
 
 ## License
 MIT © [Etzion Harari](https://github.com/EtzionR)
