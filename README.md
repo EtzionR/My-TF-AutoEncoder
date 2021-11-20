@@ -30,7 +30,7 @@ In addition, after each t_conv layer, the network also includes an **upsampling*
 
 In this way, the network tries to match the representing vector to desired output. At the end of the process, we test our output against the actual required output, which is defined as our Y. By this process, the network "learn" and adapt the layers weights. We update the weights of the network using **adam optimizer** when our loss function is **MSE**. This is how the network actually learns along the various stages to adapt itself to the required output. You can see in the following example how the AutoEncoder learn over 150 epochs to restore the original shape of the character "5" inserted into it:
 
-![learning](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/learning.gif)
+![learning](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/learning_fig.gif)
 
 As you can see, at first, the network is not close at all to creating something resembling the desired character, but within a few steps, it already manages to create an image close of the desired character, until at the end of the process there is almost no noise in the output and the character can be clearly seen.
 
