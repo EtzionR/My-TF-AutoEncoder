@@ -68,6 +68,25 @@ autoencoder.plot_loss()
 ```
 ![loss_curve](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/loss.png)
 
+It's also possible to save the model weights. so you can build & train the model, and just load it to new **AutoEncoder** object and use in the trained model:
+
+``` sh
+# import code
+from cec import AutoEncoder
+
+# fitting network
+autoencoder = AutoEncoder(source=(28,28),kernels=[5,5],filters=3,latant_dim=100,epochs=150,lr=.001).fit(input_x,output_y)
+
+# save model
+autoencoder.save(path = 'model')
+
+# load model
+autoencoder_2 = AutoEncoder(...).load('model')
+
+# prediction (by the trained weights)
+autoencoder_2.predict(input_data)
+```
+
 For conculsion, we saw that AutoEncoders as a lot of useful applications, that can be serve as useful tools in the field of machine learning.
 
 ## Libraries
