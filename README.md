@@ -1,10 +1,8 @@
-# THIS PAGE NOT READY YET
-
 # My-TF-AutoEncoder
 Basic and Generic AutoEncoder for Multifunctional purposes
 
 ## Overview
-AutoEncoders are **unsupervised Learning** tools that have many uses in **machine learning**. It can be used for many purposes such as: **dimension reduction**, **information retrieval**, **anomaly detection** and **noise filtering**. This code is a tensorflow-based implemnatation of a **Convolutional Neural Network AutoEncoder**. The code allows a simple definition of the hyperparameters of the network and easy way to build & train the AutEncoder network.
+AutoEncoders are **unsupervised Learning** tools that have many uses in **machine learning**. It can be used for many purposes such as: **dimension reduction**, **information retrieval**, **anomaly detection** and **noise filtering**. This code is a TensorFlow-based implementation of a **Convolutional Neural Network AutoEncoder**. The code allows a simple definition of the hyperparameters of the network and easy way to build & train the AutEncoder network.
 
 ![simple_prediction](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/outputs/predict.png)
 
@@ -55,7 +53,7 @@ AutoEncoder can be used for many applications, we will bring here some basic exa
 
 &emsp;&emsp; As you can see, the matrices we isolated here are indeed full of noise and was part of the infected matrices we added synthetically - which means that we were able to identify the anomalies from the whole data set and isolate them.
 
-After you trainig the model, you might want to see the **learning curve** progress by epochs. To do so, you can use the built-in plot function of the object, as the following example:
+After you training the model, you might want to see the **learning curve** progress by epochs. To do so, you can use the built-in plot function of the object, as the following example:
 ``` sh
 # import code
 from cec import AutoEncoder
@@ -101,7 +99,7 @@ The code uses the following library in Python:
 ## Application
 An application of the code is attached to this page under the name: 
 
-[**implementation.pdf**]()
+[**implementation.pdf**](https://github.com/EtzionR/My-TF-AutoEncoder/blob/main/implementation.pdf)
 
 The examples are also attached here [data](https://github.com/EtzionR/My-TF-AutoEncoder/tree/main/data).
 
