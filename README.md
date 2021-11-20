@@ -138,17 +138,17 @@ aec.predict(z)
 
 When the variables displayed are:
 
-**source:** hh
+**source:** tuple of ints, the input matrix source shape
 
-**kernels:** hh 
+**kernels:** list of ints, the size of the kernel in each layer
 
-**filters:** hh
+**filters:** int, number of filters to add in each layer
 
-**latant_dim:** hh (defualt = 2)
+**latant_dim:** int, dimension for the latatnt representation code(defualt = 2)
 
-**epochs:** hh (defualt = 150)
+**epochs:** int, number of training epochs (defualt = 150)
 
-**lr:** hh (defualt = .001)
+**lr:** float, the learning rate  (defualt = .001)
 
 ## License
 MIT © [Etzion Harari](https://github.com/EtzionR)
